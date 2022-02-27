@@ -23,7 +23,6 @@
   background: white;
 }
 .profile__button::after{
-    webkit-transform: rotate(90deg);
     transform: rotate(90deg);
 }
 .profile__button:hover {
