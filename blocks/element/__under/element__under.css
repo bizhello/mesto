@@ -1,0 +1,7 @@
+.element__under {
+  max-width: 87.234%;
+  justify-content: space-between;
+}
+.flex-row.element__under {
+  margin: 0 auto 31px;
+}

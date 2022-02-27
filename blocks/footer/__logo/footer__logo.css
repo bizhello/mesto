@@ -1,0 +1,13 @@
+.footer__logo {
+  min-height: 18px;
+  margin: 0;
+  padding: 0;
+  background: url('../../../images/footer__logo.svg');
+  background-position: left;
+  background-repeat: no-repeat;
+}
+@media (max-width: 905px)  {
+  .footer__logo {
+    min-height: 14px;
+  }
+}
