@@ -3,7 +3,7 @@ let popup = document.querySelector('.popup');
 let popupClose = document.querySelector('.popup__close');
 
 function togglePopup(){
-  popup.classList.toggle('popup__opened');
+  popup.classList.toggle('popup-opened');
 }
 
 profileEdit.addEventListener('click', togglePopup);

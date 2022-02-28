@@ -13,9 +13,6 @@
   background-color: rgba(0,0,0,0.5);
 }
 
-.popup__opened {
-  display: block;
-}
 @media (max-width: 905px)  {
   .popup {
     padding-top: 95px;
