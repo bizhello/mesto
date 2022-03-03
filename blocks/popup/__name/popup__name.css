@@ -1,11 +1,10 @@
-.popup__name,.popup__status {
+.popup__name {
   display: block;
   margin-block-start: 0;
   margin-block-end: 0;
   margin: 0 auto;
   padding: 0;
   width: 84%;
-  min-height: 27px;
   font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: normal;

@@ -11,5 +11,7 @@
   .header__logo {
     margin-left: 27px;
     min-height: 24.4px;
+    background: url("../../../images/header__logo-mobail.svg");
+    background-repeat: no-repeat;
   }
 }

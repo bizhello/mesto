@@ -2,19 +2,20 @@
   display: flex;
   flex-direction: column;
   margin: 0;
-  margin-left: 3.75px;
+  margin-left: 30px;
   margin-block-start: 0;
   margin-block-end: 0;
   padding: 0;
   padding-inline-start: 0;
-  max-width: 336px;
+  max-width: 340px;
   min-height: 73px;
+
 }
 @media (max-width: 905px)  {
   .profile__info {
     align-items: center;
-    max-width: 282px;
+    max-width: 100%;
     min-height: 54px;
-    margin: 22.25px auto 0;
+    margin: 26px auto 0;
   }
 }

@@ -32,6 +32,12 @@
 @media (max-width: 905px)  {
   .profile__button {
     width: 282px;
-    margin: 36px auto;
+    margin: 31px auto 36px;
+  }
+  .profile__button::after,
+  .profile__button::before{
+    width: 2px;
+    height: 16px;
+
   }
 }
