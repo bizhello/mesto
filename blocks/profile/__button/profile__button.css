@@ -6,7 +6,7 @@
   padding: 0;
   width: 150px;
   min-height: 50px;
-  background-color: black;
+  background-color: rgba(1.1.1.1);
   box-sizing: border-box;
   border-radius: 2px;
   border: 2px solid white;

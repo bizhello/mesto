@@ -6,8 +6,10 @@
   background: url("../../../images/header__logo.svg");
   background-repeat: no-repeat;
 }
+
 @media (max-width: 905px)  {
   .header__logo {
     margin-left: 27px;
+    min-height: 24.4px;
   }
 }
