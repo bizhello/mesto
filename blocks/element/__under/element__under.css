@@ -1,9 +1,10 @@
 .element__under {
-  max-width: 87.234%;
+  display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-}
-.flex-row.element__under {
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 0;
   margin: 0 auto;
   padding-bottom: 24px;
+  max-width: 87.234%;
 }

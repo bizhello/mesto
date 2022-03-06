@@ -1,14 +1,16 @@
 .footer__logo {
   font-family: 'Inter', Arial, sans-serif;
-  min-height: 18px;
   margin: 0;
   padding: 0;
-  background: url('../../../images/footer__logo.svg');
-  background-position: left;
-  background-repeat: no-repeat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
 }
 @media (max-width: 905px)  {
   .footer__logo {
-    min-height: 14px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }

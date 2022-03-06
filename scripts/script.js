@@ -10,6 +10,8 @@ let popupName = document.querySelector('#popup-name');
 
 function openPopup() {
   popup.classList.add('popup_opened');
+  profileName.textContent = popupName.value;
+  profileStatus.textContent = popupStatus.value;
 }//открытие попапа
 function closePopup() {
   popup.classList.remove('popup_opened');
