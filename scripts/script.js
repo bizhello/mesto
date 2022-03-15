@@ -1,12 +1,12 @@
-let profileEdit = document.querySelector('.profile__edit');
-let popup = document.querySelector('.popup');
-let popupClose = document.querySelector('.popup__close');
-let profile = document.querySelector('.profile');
-let profileName = document.querySelector('.profile__name');
-let profileStatus = document.querySelector('.profile__status');
-let popupContainer = document.querySelector('.popup__container');
-let popupStatus = document.querySelector('#popup-status');
-let popupName = document.querySelector('#popup-name');
+const profileEdit = document.querySelector('.profile__edit');
+const popup = document.querySelector('.popup');
+const popupClose = document.querySelector('.popup__close');
+const profile = document.querySelector('.profile');
+const profileName = document.querySelector('.profile__name');
+const profileStatus = document.querySelector('.profile__status');
+const popupContainer = document.querySelector('.popup__container');
+const popupStatus = document.querySelector('#popup-status');
+const popupName = document.querySelector('#popup-name');
 
 
 function openPopup() {
@@ -65,7 +65,6 @@ const closeAddElement = document.querySelector('.popup-add-element__close');
 const saveElement = document.querySelector('.popup-add-element__button');
 const popupFullScreen = document.querySelector('.popup-fullscreen');
 
-
 function addElement(evt) {
   evt.preventDefault();
   const newTitle = document.querySelector('#popup-add-element-name').value;
@@ -78,10 +77,13 @@ function addElement(evt) {
   closePopupAddElement();
 }
 function renderElement(item) {
-  let element = template.cloneNode(true);
+  const element = template.cloneNode(true);
   element.querySelector('.element__title').textContent = item.elementTitle;
   element.querySelector('.element__photo').src = item.elementPhoto;
-  //setElemetActionsListeners(element);
+  element.querySelector('.element__photo').alt = item.elementTitle;
+  setElemetActionsListeners(element);
+  setElemetLike(element);
+  setElemetFullScreen(element);
   elements.prepend(element);
 }
 function openPopupAddElement() {
@@ -93,22 +95,6 @@ function closePopupAddElement() {
   popupAddElement.classList.remove('popup-add-element_opened');
 }
 
-initialCards.forEach(renderElement);
-
-
-
-
-//Ставим лайк
-let elementLikes = document.querySelectorAll('.element__like');
-const toggleLike = (evt) => {
-  evt.target.classList.toggle('element__like_active');
-}
-elementLikes.forEach(button => {
-  button.addEventListener('click', toggleLike);
-});
-
-
-
 
 //закрытие фулскрина
 const popupFullScreenClose = document.querySelector('.popup-fullscreen__close');
@@ -116,60 +102,46 @@ popupFullScreenClose.addEventListener('click', function(){
   popupFullScreen.classList.remove('popup-fullscreen_opened');
 })
 
-saveElement.addEventListener('click', addElement);
-buttonAddElement.addEventListener('click', openPopupAddElement);
-closeAddElement.addEventListener('click', closePopupAddElement);
-
-
-/*
-const popupFullScreen = document.querySelector('.popup-fullscreen');
-let elementsForFullScreen = document.querySelectorAll('.element');
-function openPopupFullScreen(item) {
-  popupFullScreen.querySelector('.popup-fullscreen__image').src = item.elementPhoto.src;
-  popupFullScreen.querySelector('.popup-fullscreen__title').textContent = item.elementTitle.textContent;
-  popupFullScreen.classList.add('popup-fullscreen_opened');
-}
-elementsForFullScreen.forEach(item => {
-  const initialElement = {
-    elementTitle: item.querySelector('.element__title'),
-    elementPhoto: item.querySelector('.element__photo')
-  }
-//  initialElement.elementPhoto.addEventListener('click', openPopupFullScreen(initialElement));
-});
-
-/*
-
-
 
 //удаление элемента
-
 function removeElement(evt) {
   const element = evt.currentTarget.closest('.element');
   element.remove();
 }
-
 function setElemetActionsListeners(element) {
-  element.
-  querySelector('.element__trash').
-  addEventListener('click',removeElement);
+  element.querySelector('.element__trash').addEventListener('click',removeElement);
 }
-/*
-//фулскрин
-function openFullScreen(evt) {
-  const element = evt.currentTarget.closest('.element');
-  popupFullScreen.querySelector('.popup-fullscreen__image').src = elementPhoto.src;
-  popupFullScreen.querySelector('.popup-fullscreen__title').textContent = item.elementTitle.textContent;
+
+//кнопка лайк
+function toggleLike(evt) {
+  const elementLike = evt.currentTarget.closest('.element__like');
+  elementLike.classList.toggle('element__like_active');
+}
+function setElemetLike(element) {
+  element.querySelector('.element__like').addEventListener('click',toggleLike);
+}
+
+//открытие фулсрин Картинки;
+function openPopupFullScreen(evt) {
+  const elementPhoto = evt.currentTarget.closest('.element__photo').src;
+  const elementTitle = evt.currentTarget.closest('.element__photo').alt;
+  const popupFullScreen = document.querySelector('.popup-fullscreen');
   popupFullScreen.classList.add('popup-fullscreen_opened');
+  popupFullScreen.querySelector('.popup-fullscreen__image').src = elementPhoto;
+  popupFullScreen.querySelector('.popup-fullscreen__title').textContent = elementTitle;
 }
-function setElemetFullScreen
+function setElemetFullScreen(element) {
+  element.querySelector('.element__photo').addEventListener('click',openPopupFullScreen);
+}
 
 
+saveElement.addEventListener('click', addElement);
+buttonAddElement.addEventListener('click', openPopupAddElement);
+closeAddElement.addEventListener('click', closePopupAddElement);
+
+initialCards.forEach(renderElement);
 
 /*
-function removeElement(element) {
-  element.remove();
-}
-
 document.body.addEventListener('click', evt => {
   const element = evt.currentTarget.closest('.element');
   if (!element) {
@@ -186,8 +158,5 @@ document.body.addEventListener('click', evt => {
     console.log('опенКартинку!');
   }
 })
-
-
-//Картинку во весь ЭКРАН
 
 */
