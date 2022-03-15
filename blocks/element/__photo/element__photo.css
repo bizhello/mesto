@@ -1,4 +1,5 @@
 .element__photo {
+  display: block;
   margin: 0;
   margin-bottom: 23px;
   padding: 0;

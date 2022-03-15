@@ -1,4 +1,4 @@
-.popup__page {
+.popup-add-element__page {
   max-width: 880px;
   margin: 45px auto 60px;
   padding: 0;
@@ -6,7 +6,7 @@
 }
 
 @media (max-width: 905px)  {
-  .popup__page {
+  .popup-add-element__page {
     max-width: 320px;
     margin: 28px auto 36px;
   }
