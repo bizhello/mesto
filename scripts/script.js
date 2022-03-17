@@ -11,15 +11,15 @@ const popupName = document.querySelector('#popup-name');
 
 //открытие попапа профиль
 function openPopup(item) {
-  item.classList.add('popup-fullscreen_opened');
+  item.classList.add('popup_opened');
 }
 //закрытие попапа профиль
 function closePopup(item) {
-  item.classList.remove('popup-fullscreen_opened');
+  item.classList.remove('popup_opened');
 }
 
 //смена имени и статуса
-function profileFormSubmit (evt) {
+function handleProfileFormSubmit (evt) {
     evt.preventDefault();
     profileName.textContent = popupName.value;
     profileStatus.textContent = popupStatus.value;
@@ -34,7 +34,7 @@ profileEdit.addEventListener('click', function () {
 profilePopupClose.addEventListener('click', function () {
   closePopup(profilePopup);
 });
-profileSubmit.addEventListener('submit', profileFormSubmit );
+profileSubmit.addEventListener('submit', handleProfileFormSubmit );
 
 //Пятый спринт!!!!
 const initialCards = [
@@ -73,7 +73,9 @@ const popupFullScreen = document.querySelector('.popup-fullscreen');
 const newTitle = document.querySelector('#popup-add-element-name');
 const newPhoto = document.querySelector('#popup-add-element-src');
 const imagePopup = document.querySelector('.popup-fullscreen');
-const submitAddElement = document.querySelector('.popup-add-element__container');
+const imagePopupImage = imagePopup.querySelector('.popup-fullscreen__image');
+const imagePopupTitle = imagePopup.querySelector('.popup-fullscreen__title');
+const addCardForm = document.querySelector('.popup-add-element__container');
 const popupFullScreenClose = document.querySelector('.popup-fullscreen__close');
 
 function addElement(evt) {
@@ -96,43 +98,40 @@ function renderElement(item) {
 //создание карточки
 function createCard(item) {
   const element = template.cloneNode(true);
+  const elementPhoto = element.querySelector('.element__photo');
   element.querySelector('.element__title').textContent = item.elementTitle;
-  element.querySelector('.element__photo').src = item.elementPhoto;
-  element.querySelector('.element__photo').alt = item.elementTitle;
+  elementPhoto.src = item.elementPhoto;
+  elementPhoto.alt = item.elementTitle;
   return element;
 }
-
 //удаление элемента
 function removeElement(element) {
-  element.querySelector('.element__trash').addEventListener('click',function(evt){
+  element.querySelector('.element__trash').addEventListener('click',function(evt) {
     const element = evt.currentTarget.closest('.element');
     element.remove();
   });
 }
-
 //кнопка лайк
 function toggleLike(element) {
-  element.querySelector('.element__like').addEventListener('click', function(evt){
-    const element = evt.currentTarget.closest('.element__like');
+  element.querySelector('.element__like').addEventListener('click', function(evt) {
+    const element = evt.currentTarget;
     element.classList.toggle('element__like_active');
   });
 }
-
 //открытие картинки во весь экран
 function setElemetFullScreen(element) {
-  element.querySelector('.element__photo').addEventListener('click',function(evt){
-    const element = evt.currentTarget.closest('.element__photo');
+  element.querySelector('.element__photo').addEventListener('click',function(evt) {
+    const element = evt.currentTarget.closest('.element');
+    imagePopupImage.src = element.querySelector('.element__photo').src;
+    imagePopupTitle.textContent = element.querySelector('.element__title').textContent;
     openPopup(imagePopup);
-    imagePopup.querySelector('.popup-fullscreen__image').src = element.src;
-    imagePopup.querySelector('.popup-fullscreen__title').textContent = element.alt;
   });
 }
 
-
-popupFullScreenClose.addEventListener('click', function(){
+popupFullScreenClose.addEventListener('click', function() {
   closePopup(popupFullScreen);
 })
-submitAddElement.addEventListener('submit', addElement);
+addCardForm.addEventListener('submit', addElement);
 buttonAddElement.addEventListener('click', function() {
   newTitle.value = null;
   newPhoto.value = null;
