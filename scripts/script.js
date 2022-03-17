@@ -4,7 +4,7 @@ const profilePopupClose = document.querySelector('.profile-popup__close');
 const profile = document.querySelector('.profile');
 const profileName = document.querySelector('.profile__name');
 const profileStatus = document.querySelector('.profile__status');
-const profilePopupContainer = document.querySelector('.profile-popup__container');
+const profileSubmit = document.querySelector('.profile-popup__container');
 const popupStatus = document.querySelector('#popup-status');
 const popupName = document.querySelector('#popup-name');
 
@@ -19,7 +19,7 @@ function closePopup(item) {
 }
 
 //смена имени и статуса
-function handleProfileFormSubmit (evt) {
+function profileFormSubmit (evt) {
     evt.preventDefault();
     profileName.textContent = popupName.value;
     profileStatus.textContent = popupStatus.value;
@@ -27,12 +27,14 @@ function handleProfileFormSubmit (evt) {
 }
 
 profileEdit.addEventListener('click', function () {
+  popupName.value= profileName.textContent;
+  popupStatus.value = profileStatus.textContent;
   openPopup(profilePopup);
 });
 profilePopupClose.addEventListener('click', function () {
   closePopup(profilePopup);
 });
-profilePopupContainer.addEventListener('submit', handleProfileFormSubmit );
+profileSubmit.addEventListener('submit', profileFormSubmit );
 
 //Пятый спринт!!!!
 const initialCards = [
