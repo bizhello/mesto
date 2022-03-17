@@ -86,8 +86,8 @@ function addElement(evt) {
 function renderElement(item) {
   const element = createCard(item)
   createCard(element);
-  setElemetActionsListeners(element);
-  setElemetLike(element);
+  removeElement(element);
+  toggleLike(element);
   setElemetFullScreen(element);
   elements.prepend(element);
 }
@@ -101,21 +101,19 @@ function createCard(item) {
 }
 
 //удаление элемента
-function removeElement(evt) {
-  const element = evt.currentTarget.closest('.element');
-  element.remove();
-}
-function setElemetActionsListeners(element) {
-  element.querySelector('.element__trash').addEventListener('click',removeElement);
+function removeElement(element) {
+  element.querySelector('.element__trash').addEventListener('click',function(evt){
+    const element = evt.currentTarget.closest('.element');
+    element.remove();
+  });
 }
 
 //кнопка лайк
-function toggleLike(evt) {
-  const element = evt.currentTarget.closest('.element__like');
-  element.classList.toggle('element__like_active');
-}
-function setElemetLike(element) {
-  element.querySelector('.element__like').addEventListener('click',toggleLike);
+function toggleLike(element) {
+  element.querySelector('.element__like').addEventListener('click', function(evt){
+    const element = evt.currentTarget.closest('.element__like');
+    element.classList.toggle('element__like_active');
+  });
 }
 
 //открытие картинки во весь экран
@@ -129,11 +127,9 @@ function setElemetFullScreen(element) {
 }
 
 
-//закрытие картинки во весь экран
 popupFullScreenClose.addEventListener('click', function(){
   closePopup(popupFullScreen);
 })
-
 submitAddElement.addEventListener('submit', addElement);
 buttonAddElement.addEventListener('click', function() {
   newTitle.value = null;
