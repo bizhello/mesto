@@ -88,7 +88,7 @@ function addElement(evt) {
   closePopup(popupAddElement);
 }
 function renderElement(item) {
-  const element = createCard(item)
+  const element = createCard(item);
   elements.prepend(element);
 }
 //создание карточки
