@@ -4,7 +4,7 @@ const profilePopupClose = document.querySelector('.profile-popup__close');
 const profile = document.querySelector('.profile');
 const profileName = document.querySelector('.profile__name');
 const profileStatus = document.querySelector('.profile__status');
-const profileSubmit = document.querySelector('.profile-popup__container');
+const profileForm = document.querySelector('.profile-popup__container');
 const popupStatus = document.querySelector('#popup-status');
 const popupName = document.querySelector('#popup-name');
 
@@ -34,7 +34,7 @@ profileEdit.addEventListener('click', function () {
 profilePopupClose.addEventListener('click', function () {
   closePopup(profilePopup);
 });
-profileSubmit.addEventListener('submit', handleProfileFormSubmit );
+profileForm.addEventListener('submit', handleProfileFormSubmit );
 
 //Пятый спринт!!!!
 const initialCards = [
@@ -90,9 +90,6 @@ function addElement(evt) {
 function renderElement(item) {
   const element = createCard(item)
   createCard(element);
-  removeElement(element);
-  toggleLike(element);
-  setElemetFullScreen(element);
   elements.prepend(element);
 }
 //создание карточки
@@ -102,6 +99,9 @@ function createCard(item) {
   element.querySelector('.element__title').textContent = item.elementTitle;
   elementPhoto.src = item.elementPhoto;
   elementPhoto.alt = item.elementTitle;
+  removeElement(element);
+  toggleLike(element);
+  setElemetFullScreen(element);
   return element;
 }
 //удаление элемента
@@ -120,10 +120,11 @@ function toggleLike(element) {
 }
 //открытие картинки во весь экран
 function setElemetFullScreen(element) {
+  const cardImage = element.querySelector('.element__photo');
   element.querySelector('.element__photo').addEventListener('click',function(evt) {
-    const element = evt.currentTarget.closest('.element');
-    imagePopupImage.src = element.querySelector('.element__photo').src;
-    imagePopupTitle.textContent = element.querySelector('.element__title').textContent;
+    imagePopupImage.src = cardImage.src;
+    imagePopupImage.alt = cardImage.alt;
+    imagePopupTitle.textContent = cardImage.alt;
     openPopup(imagePopup);
   });
 }
