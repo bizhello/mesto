@@ -89,7 +89,6 @@ function addElement(evt) {
 }
 function renderElement(item) {
   const element = createCard(item)
-  createCard(element);
   elements.prepend(element);
 }
 //создание карточки
