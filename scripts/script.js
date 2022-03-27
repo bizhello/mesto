@@ -1,7 +1,6 @@
 const profileEdit = document.querySelector('.profile__edit');
 const profilePopup = document.querySelector('.profile-popup');
 const profilePopupClose = document.querySelector('.profile-popup__close');
-const profile = document.querySelector('.profile');
 const profileName = document.querySelector('.profile__name');
 const profileStatus = document.querySelector('.profile__status');
 const profileForm = document.querySelector('.profile-popup__container');
@@ -100,7 +99,7 @@ function createCard(item) {
   elementPhoto.alt = item.elementTitle;
   removeElement(element);
   toggleLike(element);
-  setElemetFullScreen(element);
+  setElementFullScreen(element);
   return element;
 }
 //удаление элемента
@@ -118,9 +117,9 @@ function toggleLike(element) {
   });
 }
 //открытие картинки во весь экран
-function setElemetFullScreen(element) {
+function setElementFullScreen(element) {
   const cardImage = element.querySelector('.element__photo');
-  element.querySelector('.element__photo').addEventListener('click',function(evt) {
+  element.querySelector('.element__photo').addEventListener('click',function() {
     imagePopupImage.src = cardImage.src;
     imagePopupImage.alt = cardImage.alt;
     imagePopupTitle.textContent = cardImage.alt;
@@ -133,11 +132,34 @@ popupFullScreenClose.addEventListener('click', function() {
 })
 addCardForm.addEventListener('submit', addElement);
 buttonAddElement.addEventListener('click', function() {
+  const button = document.querySelector(".popup-add-element__button");
   newTitle.value = null;
   newPhoto.value = null;
+  button.classList.add('popup__button_invalid');
+  button.classList.remove('popup__button_valid')
+  button.setAttribute('disabled','disabled');
   openPopup(popupAddElement);
+
 });
 closeAddElement.addEventListener('click', function () {
   closePopup(popupAddElement);
 });
 initialCards.forEach(renderElement);
+
+//6 спринт//
+
+function closePopupTarget(popup) {
+  popup.addEventListener('click', function (evt) {
+    if(evt.target === evt.currentTarget) {
+      closePopup(popup);
+    }
+  })
+  window.addEventListener('keydown', function(evt) {
+    if(evt.key === 'Escape') {
+      closePopup(popup);
+    }
+  })
+}
+closePopupTarget(profilePopup);
+closePopupTarget(imagePopup);
+closePopupTarget(popupAddElement);

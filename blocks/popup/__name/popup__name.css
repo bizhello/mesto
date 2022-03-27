@@ -3,7 +3,7 @@
   margin-block-start: 0;
   margin-block-end: 0;
   margin: 0 auto;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
   padding: 0;
   padding-bottom: 9px;
   width: 358px;
@@ -24,4 +24,8 @@
     margin-bottom: 29px;
     padding-bottom: 10px;
   }
+}
+
+.popup__name_error {
+  border-bottom: 1px solid red;
 }

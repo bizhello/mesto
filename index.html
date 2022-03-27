@@ -42,21 +42,33 @@
       </template>
       <div class="popup profile-popup">
         <div class="popup__page">
-          <form class="popup__container profile-popup__container" name="profile-popup" type="submit">
+          <form class="popup__container profile-popup__container" name="profile-popup" type="submit" novalidate>
             <h2 class="popup__title profile-popup__title">Редактировать профиль</h2>
-            <input class="popup__name profile-popup__name" id="popup-name" name="popup-name" value="Жак-Ив Кусто" type="text">
-            <input class="popup__name profile-popup__name" id="popup-status" name="popup-status" value="Исследователь океана" type="text">
-            <button class="popup__button profile-popup__button" type="submit">Сохранить</button>
+            <div class="popup__input-container">
+              <input class="popup__name profile-popup__name" id="popup-name" name="popup-name" value="Жак-Ив Кусто" type="text" minlength="2" maxlength="40" autocomplete="off" required>
+              <span class="error" id="popup-name-error"></span>
+            </div>
+            <div class="popup__input-container">
+              <input class="popup__name profile-popup__name" id="popup-status" name="popup-status" value="Исследователь океана" type="text" minlength="2" maxlength="200" autocomplete="off" required>
+              <span class="error" id="popup-status-error"></span>
+            </div>
+            <button class="popup__button profile-popup__button popup__button_valid" type="submit">Сохранить</button>
             <button class="popup__close profile-popup__close" type="button"></button>
           </form>
         </div>
       </div>
       <div class="popup popup-add-element">
         <div class="popup__page popup-add-element__page">
-          <form class="popup__container popup-add-element__container" name="popup-add-element" type="submit">
+          <form class="popup__container popup-add-element__container" name="popup-add-element" type="submit" autocomplete="off" novalidate>
             <h2 class="popup__title popup-add-element__title">Новое место</h2>
-            <input class="popup__name popup-add-element__name" id="popup-add-element-name" name="popup-add-element-name" placeholder="Название" type="text">
-            <input class="popup__name popup-add-element__name" id="popup-add-element-src" name="popup-add-element-src" placeholder="Ссылка на картинку" type="text">
+            <div class="popup__input-container">
+              <input class="popup__name popup-add-element__name" id="popup-add-element-name" name="popup-add-element-name" placeholder="Название" type="text" minlength="2" maxlength="30" required>
+              <span class="error" id="popup-add-element-name-error"></span>
+            </div>
+            <div class="popup__input-container">
+              <input class="popup__name popup-add-element__name" id="popup-add-element-src" name="popup-add-element-src" placeholder="Ссылка на картинку" type="url" required>
+              <span class="error" id="popup-add-element-src-error"></span>
+            </div>
             <button class="popup__button popup-add-element__button" type="submit">Сохранить</button>
             <button class="popup__close popup-add-element__close" type="button"></button>
           </form>
@@ -71,5 +83,6 @@
       </div>
     </div>
     <script src="scripts/script.js"></script>
+    <script src="scripts/validate.js"></script>
   </body>
 </html>

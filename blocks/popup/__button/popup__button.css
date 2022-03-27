@@ -1,8 +1,9 @@
 .popup__button {
   display: block;
   width: 358px;
-  min-height: 50px;
   background: black;
+  color: #FFFFFF;
+  min-height: 50px;
   margin: 48px auto 0;
   padding: 0;
   border: none;
@@ -13,7 +14,6 @@
   font-size: 18px;
   line-height: 22px;
   text-align: center;
-  color: #FFFFFF;
   transition: opacity 0.2s;
 
 }
@@ -29,4 +29,14 @@
     font-size: 14px;
     line-height: 17px;
   }
+}
+.popup__button_valid {
+  opacity: 1;
+}
+.popup__button_invalid {
+  opacity: 0.2;
+}
+.popup__button_invalid:hover {
+  opacity: 0.2;
+  cursor: default;
 }
