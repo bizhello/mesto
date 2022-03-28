@@ -1,14 +1,13 @@
 function enableValidation(config) {
 const form = document.querySelector(config.form);
 
-form.addEventListener('submit', handlerFormSubmit);
+form.addEventListener('submit', (evt) => handlerFormSubmit(evt, config));
 form.addEventListener('input',(evt) => handlerFormInput(evt, config));
 
 }
-function handlerFormSubmit(evt) {
+function handlerFormSubmit(evt, config) {
     evt.preventDefault();
-    const form = evt.currentTarget;
-    const button = form.querySelector('.popup__button');
+    const button = evt.querySelector(config.buttonSubmit);
     button.setAttribute('disabled','disabled');
 }
 function handlerFormInput(evt, config) {
@@ -45,7 +44,7 @@ function setFieldError(input) {
     span.textContent = input.validationMessage;
 }
 function setSubmitButtonState(form, config) {
-    const button = form.querySelector('.popup__button');
+    const button = form.querySelector(config.buttonSubmit);
     const isValid = form.checkValidity();
 
     if (!isValid) {
@@ -64,11 +63,13 @@ enableValidation({
     nameError : 'popup__name_error',
     buttonInvalid: 'popup__button_invalid',
     buttonValid : 'popup__button_valid',
+    buttonSubmit:'.profile-popup__button'
 })
 enableValidation({
     form: '.popup__container[name="popup-add-element"]',
     nameError : 'popup__name_error',
     buttonInvalid: 'popup__button_invalid',
     buttonValid : 'popup__button_valid',
+    buttonSubmit:'.popup-add-element__button'
 })
 

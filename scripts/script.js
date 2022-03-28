@@ -1,41 +1,3 @@
-const profileEdit = document.querySelector('.profile__edit');
-const profilePopup = document.querySelector('.profile-popup');
-const profilePopupClose = document.querySelector('.profile-popup__close');
-const profileName = document.querySelector('.profile__name');
-const profileStatus = document.querySelector('.profile__status');
-const profileForm = document.querySelector('.profile-popup__container');
-const popupStatus = document.querySelector('#popup-status');
-const popupName = document.querySelector('#popup-name');
-
-
-//открытие попапа профиль
-function openPopup(item) {
-  item.classList.add('popup_opened');
-}
-//закрытие попапа профиль
-function closePopup(item) {
-  item.classList.remove('popup_opened');
-}
-
-//смена имени и статуса
-function handleProfileFormSubmit (evt) {
-    evt.preventDefault();
-    profileName.textContent = popupName.value;
-    profileStatus.textContent = popupStatus.value;
-    closePopup(profilePopup);
-}
-
-profileEdit.addEventListener('click', function () {
-  popupName.value= profileName.textContent;
-  popupStatus.value = profileStatus.textContent;
-  openPopup(profilePopup);
-});
-profilePopupClose.addEventListener('click', function () {
-  closePopup(profilePopup);
-});
-profileForm.addEventListener('submit', handleProfileFormSubmit );
-
-//Пятый спринт!!!!
 const initialCards = [
   {
     elementTitle: 'Архыз',
@@ -76,6 +38,46 @@ const imagePopupImage = imagePopup.querySelector('.popup-fullscreen__image');
 const imagePopupTitle = imagePopup.querySelector('.popup-fullscreen__title');
 const addCardForm = document.querySelector('.popup-add-element__container');
 const popupFullScreenClose = document.querySelector('.popup-fullscreen__close');
+const profileEdit = document.querySelector('.profile__edit');
+const profilePopup = document.querySelector('.profile-popup');
+const profilePopupClose = document.querySelector('.profile-popup__close');
+const profileName = document.querySelector('.profile__name');
+const profileStatus = document.querySelector('.profile__status');
+const profileForm = document.querySelector('.profile-popup__container');
+const popupStatus = document.querySelector('#popup-status');
+const popupName = document.querySelector('#popup-name');
+const ESC_CODE = 'Escape';
+
+//открытие попапа профиль
+function openPopup(item) {
+  item.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEsc);
+}
+//закрытие попапа профиль
+function closePopup(item) {
+  item.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEsc);
+  }
+
+//смена имени и статуса
+function handleProfileFormSubmit (evt) {
+    evt.preventDefault();
+    profileName.textContent = popupName.value;
+    profileStatus.textContent = popupStatus.value;
+    closePopup(profilePopup);
+}
+
+profileEdit.addEventListener('click', function () {
+  popupName.value= profileName.textContent;
+  popupStatus.value = profileStatus.textContent;
+  openPopup(profilePopup);
+});
+profilePopupClose.addEventListener('click', function () {
+  closePopup(profilePopup);
+});
+profileForm.addEventListener('submit', handleProfileFormSubmit );
+
+
 
 function addElement(evt) {
   evt.preventDefault();
@@ -133,10 +135,9 @@ popupFullScreenClose.addEventListener('click', function() {
 addCardForm.addEventListener('submit', addElement);
 buttonAddElement.addEventListener('click', function() {
   const button = document.querySelector(".popup-add-element__button");
-  newTitle.value = null;
-  newPhoto.value = null;
+  newTitle.value = '';
+  newPhoto.value = '';
   button.classList.add('popup__button_invalid');
-  button.classList.remove('popup__button_valid')
   button.setAttribute('disabled','disabled');
   openPopup(popupAddElement);
 
@@ -147,19 +148,20 @@ closeAddElement.addEventListener('click', function () {
 initialCards.forEach(renderElement);
 
 //6 спринт//
-
 function closePopupTarget(popup) {
-  popup.addEventListener('click', function (evt) {
+  popup.addEventListener('mousedown', function (evt) {
     if(evt.target === evt.currentTarget) {
       closePopup(popup);
     }
   })
-  window.addEventListener('keydown', function(evt) {
-    if(evt.key === 'Escape') {
-      closePopup(popup);
-    }
-  })
 }
+function closeByEsc(evt) {
+  if (evt.key === ESC_CODE) {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+}
+
 closePopupTarget(profilePopup);
 closePopupTarget(imagePopup);
 closePopupTarget(popupAddElement);

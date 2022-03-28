@@ -30,9 +30,7 @@
     line-height: 17px;
   }
 }
-.popup__button_valid {
-  opacity: 1;
-}
+
 .popup__button_invalid {
   opacity: 0.2;
 }
