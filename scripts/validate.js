@@ -1,14 +1,12 @@
 function enableValidation(config) {
 const form = document.querySelector(config.form);
 
-form.addEventListener('submit', (evt) => handlerFormSubmit(evt, config));
+form.addEventListener('submit', (evt) => handlerFormSubmit(evt));
 form.addEventListener('input',(evt) => handlerFormInput(evt, config));
 
 }
-function handlerFormSubmit(evt, config) {
-    evt.preventDefault();
-    const button = evt.querySelector(config.buttonSubmit);
-    button.setAttribute('disabled','disabled');
+function handlerFormSubmit(evt) {
+     evt.preventDefault();
 }
 function handlerFormInput(evt, config) {
     const form = evt.currentTarget;
