@@ -1,29 +1,6 @@
-const initialCards = [
-  {
-    elementTitle: 'Архыз',
-    elementPhoto: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    elementTitle: 'Челябинская область',
-    elementPhoto: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    elementTitle: 'Иваново',
-    elementPhoto: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    elementTitle: 'Камчатка',
-    elementPhoto: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    elementTitle: 'Холмогорский район',
-    elementPhoto: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    elementTitle: 'Байкал',
-    elementPhoto: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+import {Card} from './Card.js';
+import {FormValidator} from './FormValidator.js'
+import {initialCards} from './initialCards.js'
 
 const elements = document.querySelector('.elements');
 const buttonAddElement = document.querySelector('.profile__button');
@@ -46,6 +23,7 @@ const profileForm = document.querySelector('.profile-popup__container');
 const popupStatus = document.querySelector('#popup-status');
 const popupName = document.querySelector('#popup-name');
 const ESC_CODE = 'Escape';
+const template = document.querySelector('.template');
 
 //открытие попапа профиль
 function openPopup(item) {
@@ -83,12 +61,13 @@ popupFullScreenClose.addEventListener('click', function() {
 })
 
 addCardForm.addEventListener('submit', () => {
-  let el = new Card(`${newTitle.value}`,`${newPhoto.value}`);
+  let el = new Card(`${newTitle.value}`,`${newPhoto.value}`, template);
   el.createCard();
+  closePopup(popupAddElement);
 });
 
 initialCards.forEach((item) => {
-  const el = new Card(item.elementTitle, item.elementPhoto);
+  const el = new Card(item.elementTitle, item.elementPhoto, template);
   el.createCard();
 })
 
@@ -104,6 +83,7 @@ buttonAddElement.addEventListener('click', function() {
 closeAddElement.addEventListener('click', function () {
   closePopup(popupAddElement);
 });
+
 
 
 //6 спринт//
@@ -127,24 +107,25 @@ closePopupTarget(popupAddElement);
 
 //7 спринт//
 
-
-const profileFormValidity = new FormValidator({
+const configProfile = {
   form: '.popup__container[name="profile-popup"]',
   nameError : 'popup__name_error',
   buttonInvalid: 'popup__button_invalid',
   buttonValid : 'popup__button_valid',
   buttonSubmit:'.profile-popup__button'
-}, profileForm);
-const newCardFormValidity = new FormValidator({
-    form: '.popup__container[name="popup-add-element"]',
-    nameError : 'popup__name_error',
-    buttonInvalid: 'popup__button_invalid',
-    buttonValid : 'popup__button_valid',
-    buttonSubmit:'.popup-add-element__button'
-}, addCardForm);
+}
+const configAddElement = {
+  form: '.popup__container[name="popup-add-element"]',
+  nameError : 'popup__name_error',
+  buttonInvalid: 'popup__button_invalid',
+  buttonValid : 'popup__button_valid',
+  buttonSubmit:'.popup-add-element__button'
+}
+
+const profileFormValidity = new FormValidator(configProfile, profileForm);
+const newCardFormValidity = new FormValidator(configAddElement, addCardForm);
 
 profileFormValidity.enableValidation();
 newCardFormValidity.enableValidation();
 
-
-
+export {imagePopupImage, imagePopupTitle, openPopup, imagePopup, closePopup, popupAddElement, elements}

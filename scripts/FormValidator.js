@@ -1,20 +1,20 @@
-class FormValidator {
-    constructor(config, formSelector) {
+export class FormValidator {
+    constructor(config, formElement) {
         this._config = config;
-        this._formSelector = formSelector;
+        this._formElement = formElement;
     }
     enableValidation = () => {
-        const formElement = this._formSelector;
+        const formElement = this._formElement;
         this._setEventListeners(formElement);
     }
     _setEventListeners = (formElement) => {
-        formElement.addEventListener('submit', this._handlerFormSubmit);
-        formElement.addEventListener('input',  this._handlerFormInput);
+        formElement.addEventListener('submit', this._handleFormSubmit);
+        formElement.addEventListener('input',  this._handleFormInput);
     }
-    _handlerFormSubmit = (evt) => {
+    _handleFormSubmit = (evt) => {
         evt.preventDefault();
     }
-    _handlerFormInput = (evt) => {
+    _handleFormInput = (evt) => {
         const input = evt.target;
         this._setCustomError(input);
         this._setFieldError(input);
@@ -47,13 +47,13 @@ class FormValidator {
         span.textContent = input.validationMessage;
     }
     _setSubmitButtonState = () => {
-        const button = this._formSelector.querySelector(this._config.buttonSubmit);
-        const isValid = this._formSelector.checkValidity();
+        const button = this._formElement.querySelector(this._config.buttonSubmit);
+        const isValid = this._formElement.checkValidity();
 
         if (!isValid) {
             button.classList.add(this._config.buttonInvalid);
             button.classList.remove(this._config.buttonValid)
-            button.setAttribute('disabled', 'disabled');
+            button.setAttribute('disabled', 'true');
         } else {
             button.classList.remove(this._config.buttonInvalid);
             button.classList.add(this._config.buttonValid);
