@@ -1,3 +1,5 @@
+import {imagePopupImage, imagePopupTitle, openPopup, imagePopup} from './index.js';
+
 export class Card {
     constructor(elementTitle, elementPhoto, template) {
         this._elementTitle = elementTitle;
@@ -6,6 +8,7 @@ export class Card {
     }
 
     _removeElement = () => {
+        this._view.remove();
         this._view = null;
     }
     _setElementFullScreen = () => {
@@ -22,17 +25,12 @@ export class Card {
         this._view.querySelector('.element__photo').addEventListener('click',this._setElementFullScreen);
     }
 
-    _renderCard = () => {
-        elements.prepend(this._view);
-    }
-
     createCard = () => {
         this._view = this._template.content.cloneNode(true).querySelector('.element');
         this._view.querySelector('.element__title').textContent = this._elementTitle;
         this._view.querySelector('.element__photo').src = this._elementPhoto;
 
         this._listener();
-        this._renderCard();
+        return this._view;
    }
 }
-import {imagePopupImage, imagePopupTitle, openPopup, imagePopup, elements} from './index.js'

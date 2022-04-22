@@ -52,7 +52,7 @@ export class FormValidator {
 
         if (!isValid) {
             button.classList.add(this._config.buttonInvalid);
-            button.classList.remove(this._config.buttonValid)
+            button.classList.remove(this._config.buttonValid);
             button.setAttribute('disabled', 'true');
         } else {
             button.classList.remove(this._config.buttonInvalid);

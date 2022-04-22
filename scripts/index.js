@@ -63,12 +63,14 @@ popupFullScreenClose.addEventListener('click', function() {
 addCardForm.addEventListener('submit', () => {
   let el = new Card(`${newTitle.value}`,`${newPhoto.value}`, template);
   el.createCard();
+  elements.prepend(el._view);
   closePopup(popupAddElement);
 });
 
 initialCards.forEach((item) => {
   const el = new Card(item.elementTitle, item.elementPhoto, template);
   el.createCard();
+  elements.prepend(el._view);
 })
 
 buttonAddElement.addEventListener('click', function() {
@@ -83,7 +85,6 @@ buttonAddElement.addEventListener('click', function() {
 closeAddElement.addEventListener('click', function () {
   closePopup(popupAddElement);
 });
-
 
 
 //6 спринт//
@@ -106,24 +107,15 @@ closePopupTarget(imagePopup);
 closePopupTarget(popupAddElement);
 
 //7 спринт//
-
-const configProfile = {
-  form: '.popup__container[name="profile-popup"]',
+const config = {
   nameError : 'popup__name_error',
   buttonInvalid: 'popup__button_invalid',
   buttonValid : 'popup__button_valid',
-  buttonSubmit:'.profile-popup__button'
-}
-const configAddElement = {
-  form: '.popup__container[name="popup-add-element"]',
-  nameError : 'popup__name_error',
-  buttonInvalid: 'popup__button_invalid',
-  buttonValid : 'popup__button_valid',
-  buttonSubmit:'.popup-add-element__button'
+  buttonSubmit:'.popup__button',
 }
 
-const profileFormValidity = new FormValidator(configProfile, profileForm);
-const newCardFormValidity = new FormValidator(configAddElement, addCardForm);
+const profileFormValidity = new FormValidator(config, profileForm);
+const newCardFormValidity = new FormValidator(config, addCardForm);
 
 profileFormValidity.enableValidation();
 newCardFormValidity.enableValidation();
