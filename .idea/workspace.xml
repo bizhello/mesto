@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d878886-686a-4454-93b3-5c56e9b635ee" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../спринты/8спринт/mesto" beforeDir="false" afterPath="$PROJECT_DIR$/../../спринты/8спринт/mesto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/Card.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/FormValidator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/Popup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/PopupWithForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/PopupWithImage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/Section.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/UserInfo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/initialCards.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../спринты/7спринт.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../спринты/8спринт/mesto" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +41,7 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -47,6 +62,9 @@
       <workItem from="1650346980471" duration="58000" />
       <workItem from="1650354267499" duration="21597000" />
       <workItem from="1650445808746" duration="11974000" />
+      <workItem from="1651761950725" duration="15744000" />
+      <workItem from="1651856502725" duration="8112000" />
+      <workItem from="1651911225293" duration="22799000" />
     </task>
     <servers />
   </component>

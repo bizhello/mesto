@@ -29,12 +29,6 @@ export class FormValidator {
         if(!input.validity.valid) {
             input.classList.add(this._config.nameError);
         }
-        if(validity.tooShort || validity.tooLong) {
-            const currentLength = input.value.length;
-            const min = input.getAttribute('minlength');
-            input.setCustomValidity(`Минимальное количество символов ${min}. Длина текста сейчас: ${currentLength} символ.`
-            );
-        }
         if(validity.typeMismatch) {
             input.setCustomValidity('Введите адрес сайта.');
         }
@@ -47,17 +41,17 @@ export class FormValidator {
         span.textContent = input.validationMessage;
     }
     _setSubmitButtonState = () => {
-        const button = this._formElement.querySelector(this._config.buttonSubmit);
+        this._button = this._formElement.querySelector(this._config.buttonSubmit);
         const isValid = this._formElement.checkValidity();
 
         if (!isValid) {
-            button.classList.add(this._config.buttonInvalid);
-            button.classList.remove(this._config.buttonValid);
-            button.setAttribute('disabled', 'true');
+            this._button.classList.add(this._config.buttonInvalid);
+            this._button.classList.remove(this._config.buttonValid);
+            this._button.setAttribute('disabled', 'true');
         } else {
-            button.classList.remove(this._config.buttonInvalid);
-            button.classList.add(this._config.buttonValid);
-            button.removeAttribute('disabled');
+            this._button.classList.remove(this._config.buttonInvalid);
+            this._button.classList.add(this._config.buttonValid);
+            this._button.removeAttribute('disabled');
         }
     }
 
