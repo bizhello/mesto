@@ -8,24 +8,33 @@ export class PopupWithForm extends Popup {
     }
     close() {
         super.close();
-    }
-    getInputValues() {
-        this.values = {
-            valueTop : this._inputList[0].value,
-            valueBottom : this._inputList[1].value
-        }
-        return this.values;
-    }
-    setEventListeners() {
-        this._inputList[0].value = '';
-        this._inputList[1].value = '';
-        super.setEventListeners();
-        this.popup.addEventListener('submit', () => {
-            this._callbackSubmitForm();
-            this.close();
+        this._inputList.forEach((input) => { //не работает
+            input.value = '';
         })
     }
+    _getInputValues() {
+        this.values = {};
+        this._inputList.forEach(inputElement => {
+            this.values[inputElement.name] = inputElement.value;
+        })
+        return this.values;
+    }
 
+    setEventListeners() {
+        super.setEventListeners();
+        this.popup.addEventListener('submit', () => {
+            this._callbackSubmitForm(this._getInputValues());
+            this.close();
+            this._inputList.forEach(input => { //а при сабмите - очищает
+                input.value = '';
+                })
+            })
+        }
 }
+
+
+
+
+
 
 

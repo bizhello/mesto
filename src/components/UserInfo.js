@@ -11,10 +11,8 @@ export class UserInfo {
         }
         return this.values;
     }
-    setUserInfo() {
-        this._popupName = document.querySelector('#popup-name');
-        this._popupStatus = document.querySelector('#popup-status');
-        this._profileName.textContent = this._popupName.value;
-        this._profileStatus.textContent = this._popupStatus.value;
+    setUserInfo(name, status) {
+        this._profileName.textContent = name;
+        this._profileStatus.textContent = status;
     }
 }

@@ -16,9 +16,8 @@ export class Card {
             evt.target.classList.toggle('element__like_active')
         }));
         this.view.querySelector('.element__trash').addEventListener('click', this._removeElement);
-        this.view.querySelector('.element__photo').addEventListener('click', this._handleCardClick);
+        this._cardImage.addEventListener('click', this._handleCardClick);
     }
-
 
     createCard = () => {
         this.view = this._template.content.cloneNode(true).querySelector('.element');
@@ -31,4 +30,3 @@ export class Card {
         return this.view;
    }
 }
-

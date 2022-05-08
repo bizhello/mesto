@@ -2,10 +2,10 @@ export class FormValidator {
     constructor(config, formElement) {
         this._config = config;
         this._formElement = formElement;
+        this._button = this._formElement.querySelector(this._config.buttonSubmit);
     }
     enableValidation = () => {
-        const formElement = this._formElement;
-        this._setEventListeners(formElement);
+        this._setEventListeners(this._formElement);
     }
     _setEventListeners = (formElement) => {
         formElement.addEventListener('submit', this._handleFormSubmit);
@@ -21,19 +21,11 @@ export class FormValidator {
         this._setSubmitButtonState();
     }
     _setCustomError = (input) => {
-        const validity = input.validity;
-
         input.setCustomValidity('');
         input.classList.remove(this._config.nameError);
 
         if(!input.validity.valid) {
             input.classList.add(this._config.nameError);
-        }
-        if(validity.typeMismatch) {
-            input.setCustomValidity('Введите адрес сайта.');
-        }
-        if(input.value ==='') {
-            input.setCustomValidity('Вы пропустили это поле.');
         }
     }
     _setFieldError = (input) => {
@@ -41,7 +33,6 @@ export class FormValidator {
         span.textContent = input.validationMessage;
     }
     _setSubmitButtonState = () => {
-        this._button = this._formElement.querySelector(this._config.buttonSubmit);
         const isValid = this._formElement.checkValidity();
 
         if (!isValid) {
@@ -54,5 +45,4 @@ export class FormValidator {
             this._button.removeAttribute('disabled');
         }
     }
-
 }

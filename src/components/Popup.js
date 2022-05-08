@@ -10,7 +10,11 @@ export class Popup {
 
     close = () => {
         this.popup.classList.remove('popup_opened');
-        this.popup.removeEventListener('keydown', this._handleEscClose);
+        this.popup.removeEventListener('keydown', ((evt) => {
+            if (evt.key === 'Escape') {
+                this.close();
+            }
+        }))
     }
 
     _handleEscClose() {
