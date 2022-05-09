@@ -21,16 +21,16 @@ const includeUserInfo = new UserInfo('.profile__name', '.profile__status');
 const fullScreenPopup = new PopupWithImage('.popup-fullscreen');
 fullScreenPopup.setEventListeners();
 
-const popupForm = new PopupWithForm(() => {
-  includeUserInfo.setUserInfo(popupForm.values['popup-name'], popupForm.values['popup-status']);
+const popupForm = new PopupWithForm((data) => {
+  includeUserInfo.setUserInfo(data['popup-name'], data['popup-status']);
 }, '.profile-popup');
-popupForm.setEventListeners();
+  popupForm.setEventListeners();
 
-const popupCardForm = new PopupWithForm(cardFormSubmit,'.popup-add-element');
+  const popupCardForm = new PopupWithForm(cardFormSubmit,'.popup-add-element');
 popupCardForm.setEventListeners();
 
 function cardFormSubmit(data) {
-  cardsContainer.prepend(createCard(data['popup-add-element-name'], data['popup-add-element-src']));
+  cardInitial.addItem(createCard(data['popup-add-element-name'], data['popup-add-element-src']))
 }
 
 function createCard(title, photo) {
@@ -38,10 +38,11 @@ function createCard(title, photo) {
     fullScreenPopup.open(title, photo);
   });
   card.createCard();
-  return card.view;
+  return card.createCard();
 }
 
 profileEdit.addEventListener('click', () => {
+  newCardFormValidity.setSubmitButtonState();
   includeUserInfo.getUserInfo();
   popupName.value = includeUserInfo.values.name;
   popupStatus.value = includeUserInfo.values.status;
@@ -60,5 +61,5 @@ buttonAddElement.addEventListener('click', () => {
 const profileFormValidity = new FormValidator(config, profileForm);
 const newCardFormValidity = new FormValidator(config, cardElement);
 
-profileFormValidity.enableValidation();
-newCardFormValidity.enableValidation();
+profileFormValidity.setEventListeners();
+newCardFormValidity.setEventListeners();

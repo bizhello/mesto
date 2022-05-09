@@ -4,35 +4,37 @@ export class FormValidator {
         this._formElement = formElement;
         this._button = this._formElement.querySelector(this._config.buttonSubmit);
     }
-    enableValidation = () => {
-        this._setEventListeners(this._formElement);
+
+    setEventListeners() {
+        this._formElement.addEventListener('submit', this._handleFormSubmit);
+        this._formElement.addEventListener('input',  this._handleFormInput);
     }
-    _setEventListeners = (formElement) => {
-        formElement.addEventListener('submit', this._handleFormSubmit);
-        formElement.addEventListener('input',  this._handleFormInput);
-    }
+
     _handleFormSubmit = (evt) => {
         evt.preventDefault();
     }
+
     _handleFormInput = (evt) => {
         const input = evt.target;
         this._setCustomError(input);
         this._setFieldError(input);
-        this._setSubmitButtonState();
+        this.setSubmitButtonState();
     }
-    _setCustomError = (input) => {
-        input.setCustomValidity('');
-        input.classList.remove(this._config.nameError);
 
+    _setCustomError = (input) => {
         if(!input.validity.valid) {
             input.classList.add(this._config.nameError);
+        }  else {
+            input.classList.remove(this._config.nameError);
         }
     }
+
     _setFieldError = (input) => {
         const span = document.querySelector(`#${input.id}-error`);
         span.textContent = input.validationMessage;
     }
-    _setSubmitButtonState = () => {
+
+    setSubmitButtonState = () => {
         const isValid = this._formElement.checkValidity();
 
         if (!isValid) {
