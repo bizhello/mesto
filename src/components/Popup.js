@@ -2,7 +2,6 @@ export class Popup {
     constructor(selectorPopup) {
         this.popup = document.querySelector(selectorPopup);
         this._handleEscClose = this._handleEscClose.bind(this);
-        this.close = this.close.bind(this); // для закрытия на крестик
     }
 
     open() {
@@ -26,11 +25,10 @@ export class Popup {
     }
 
     setEventListeners() {
-        this.popup.addEventListener('mousedown', (evt => {
-            if(evt.target === evt.currentTarget) {
+        this.popup.addEventListener('mousedown', (evt) => {
+            if(evt.target === evt.currentTarget || evt.target.classList.contains('popup__close')) {
                 this.close();
             }
-        }))
-        this.popup.querySelector('.popup__close').addEventListener('click', this.close);
+        })
     }
 }

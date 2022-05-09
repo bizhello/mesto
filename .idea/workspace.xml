@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FormValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormValidator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Popup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PopupWithForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupWithForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../спринты/7спринт.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../спринты/8спринт/mesto" beforeDir="false" />
@@ -59,6 +58,7 @@
       <workItem from="1651911225293" duration="22799000" />
       <workItem from="1651990618086" duration="19604000" />
       <workItem from="1652073467507" duration="3584000" />
+      <workItem from="1652085954512" duration="652000" />
     </task>
     <servers />
   </component>

@@ -37,15 +37,14 @@ function createCard(title, photo) {
   const card = new Card(title, photo, '.template', () => {
     fullScreenPopup.open(title, photo);
   });
-  card.createCard();
   return card.createCard();
 }
 
 profileEdit.addEventListener('click', () => {
-  newCardFormValidity.setSubmitButtonState();
   includeUserInfo.getUserInfo();
   popupName.value = includeUserInfo.values.name;
   popupStatus.value = includeUserInfo.values.status;
+  profileFormValidity.setSubmitButtonState();
   popupForm.open();
 });
 
@@ -55,6 +54,7 @@ const cardInitial = new Section(initialCards, (item) => {
 cardInitial.renderSection();
 
 buttonAddElement.addEventListener('click', () => {
+  newCardFormValidity.setSubmitButtonState();
   popupCardForm.open();
 })
 

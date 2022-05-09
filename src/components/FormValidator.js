@@ -17,21 +17,19 @@ export class FormValidator {
     _handleFormInput = (evt) => {
         const input = evt.target;
         this._setCustomError(input);
-        this._setFieldError(input);
         this.setSubmitButtonState();
     }
 
     _setCustomError = (input) => {
         if(!input.validity.valid) {
             input.classList.add(this._config.nameError);
+            const span = document.querySelector(`#${input.id}-error`);
+            span.textContent = input.validationMessage;
         }  else {
             input.classList.remove(this._config.nameError);
+            const span = document.querySelector(`#${input.id}-error`);
+            span.textContent = "";
         }
-    }
-
-    _setFieldError = (input) => {
-        const span = document.querySelector(`#${input.id}-error`);
-        span.textContent = input.validationMessage;
     }
 
     setSubmitButtonState = () => {
