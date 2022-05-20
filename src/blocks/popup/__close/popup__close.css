@@ -17,6 +17,9 @@
   opacity: 0.6;
   cursor: pointer;
 }
+.popup-edit-avatar__close {
+  bottom : 290px;
+}
 @media (max-width: 905px)  {
   .popup__close {
     width: 20px;
@@ -24,5 +27,11 @@
     left: 262px;
     bottom: 340px;
     background: url('../../../images/close-Icon-mobile.svg');
+  }
+}
+
+@media (max-width: 905px)  {
+  .popup-edit-avatar__close {
+    bottom: 288px;
   }
 }
