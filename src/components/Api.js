@@ -11,7 +11,7 @@ export class Api {
     }
 
     getUserInfo() {
-        return fetch('https://nomoreparties.co/v1/cohort-41/users/me', {
+        return fetch(this._url+'users/me', {
             method: 'GET',
             headers: this._headers
         })

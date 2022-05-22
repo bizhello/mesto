@@ -1,7 +1,5 @@
-import {profileId} from './../pages/index';
-
 export class Card {
-    constructor(elementTitle, elementPhoto, template, handleCardClick, numberLikes, ownerId, likes, handleDeleteIconClick, handleLikeCard) {
+    constructor(elementTitle, elementPhoto, template, handleCardClick, numberLikes, ownerId, likes, handleDeleteIconClick, handleLikeCard, profileId) {
         this._elementTitle = elementTitle;
         this._elementPhoto = elementPhoto;
         this._template = document.querySelector(template);
@@ -11,6 +9,7 @@ export class Card {
         this._likes = likes;
         this._handleDeleteIconClick = handleDeleteIconClick;
         this._handleLikeCard = handleLikeCard;
+        this._profileId = profileId
     }
 
     removeElement() {
@@ -34,20 +33,28 @@ export class Card {
         this._setListener();
         if(this._likes !== undefined) {
             this._likes.forEach((item) => {
-                if(item._id === profileId) {
+                if(item._id === this._profileId) {
                     this.view.querySelector('.element__like').classList.add('element__like_active');
                 }
             })
         }
-        if(profileId !== this._ownerId)
+        if(this._profileId !== this._ownerId)
             {
                 this.view.querySelector('.element__trash').style.display = 'none';
             }
-        if(this._ownerId == undefined)
+        else
             {
                 this.view.querySelector('.element__trash').style.display = 'block';
             }
         return this.view;
    }
+    likeCard = () => {
+        this.view.querySelector('.element__like').classList.toggle('element__like_active');
+        this.view.querySelector('.element__number').textContent ++;
+    }
+    deleteLikeCard = () => {
+        this.view.querySelector('.element__like').classList.toggle('element__like_active');
+        this.view.querySelector('.element__number').textContent --;
+    }
 }
 

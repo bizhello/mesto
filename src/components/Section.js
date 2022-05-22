@@ -1,13 +1,12 @@
-import {apiItems} from './../pages/index'
-
 export class Section {
-    constructor(renderer, containerSelector) {
+    constructor(renderer, containerSelector, initialCardsFromServer) {
         this._renderer = renderer;
         this._containerSelector = document.querySelector(containerSelector);
+        this._initialCardsFromServer = initialCardsFromServer;
     }
 
     renderSection() {
-        apiItems.forEach((item) => {
+        this._initialCardsFromServer.forEach((item) => {
             this._renderer(item);
         })
     }
