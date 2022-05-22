@@ -2,22 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d878886-686a-4454-93b3-5c56e9b635ee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/element/__like/element__like.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/element/__like/element__like.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/element/__under/element__under.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/element/__under/element__under.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/popup/__close/popup__close.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/popup/__close/popup__close.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/popup/popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/popup/popup.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/profile/__avatar/profile__avatar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/profile/__avatar/profile__avatar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/profile/__edit/profile__edit.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/profile/__edit/profile__edit.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks/profile/__box-avatar/profile__box-avatar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/profile/__box-avatar/profile__box-avatar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/blocks/profile/__change-avatar/profile__change-avatar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/profile/__change-avatar/profile__change-avatar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Popup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PopupWithForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PopupWithForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Section.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Section.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../спринты/7спринт.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../спринты/8спринт/mesto" beforeDir="false" />
@@ -75,7 +70,7 @@
       <workItem from="1652192517632" duration="839000" />
       <workItem from="1652539984330" duration="799000" />
       <workItem from="1652604498673" duration="44462000" />
-      <workItem from="1652886133389" duration="25741000" />
+      <workItem from="1652886133389" duration="62925000" />
     </task>
     <servers />
   </component>

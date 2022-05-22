@@ -12,3 +12,4 @@
 
 
   Ссылка на гитхаб : https://github.com/bizhello/mesto
+  Ссылка на диплой : https://bizhello.github.io/mesto
